@@ -40,12 +40,13 @@ class ItemController extends Controller
 
     public function add_cart(Request $request)
     {
-        Cart::create([
+        $cart = Cart::create([
             'total-price' => $request->total_price
         ]);
 
         return response()->json([
-            'message ' => 'cart created successfully'
+            'message ' => 'cart created successfully',
+            'id' => $cart->id
         ]);
     }
 
