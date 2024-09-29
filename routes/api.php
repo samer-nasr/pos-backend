@@ -14,3 +14,13 @@ Route::get('/items',[ItemController::class , 'index']);
 Route::get('/category_items',[ItemController::class,'category_items']);
 
 Route::post('/login', [AuthenticatedSessionConstroller::class, 'login']);
+
+Route::get('/carts',[ItemController::class,'carts']);
+
+Route::get('/carts/{id}',[ItemController::class,'cart']);
+
+
+Route::post('/add_cart',[ItemController::class,'add_cart']);
+
+Route::post('/add_cartItem',[ItemController::class,'add_cartItem']);
+

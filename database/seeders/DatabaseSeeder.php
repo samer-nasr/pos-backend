@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cart;
+use App\Models\CartItem;
 use App\Models\Category;
 use App\Models\Item;
 use App\Models\User;
@@ -99,6 +101,41 @@ class DatabaseSeeder extends Seeder
             'price' => 2.2,
             'quantity'=>20,
             'category_id'=>3
+        ]);
+
+        //Create Carts
+        Cart::factory()->create([
+            'total-price' => 20
+        ]);
+
+        Cart::factory()->create([
+            'total-price' => 30
+        ]);
+
+        //Create items for Cart 1
+        CartItem::factory()->create([
+            'name' => Item::find(1)->name,
+            'price' => Item::find(1)->price,
+            'cart_id' =>1
+        ]);
+
+        CartItem::factory()->create([
+            'name' => Item::find(3)->name,
+            'price' => Item::find(3)->price,
+            'cart_id' =>1
+        ]);
+
+        //Create items for Cart 2
+        CartItem::factory()->create([
+            'name' => Item::find(2)->name,
+            'price' => Item::find(2)->price,
+            'cart_id' =>2
+        ]);
+
+        CartItem::factory()->create([
+            'name' => Item::find(5)->name,
+            'price' => Item::find(5)->price,
+            'cart_id' =>2
         ]);
 
     }
